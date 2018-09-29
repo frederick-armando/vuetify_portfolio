@@ -1,7 +1,66 @@
-.v-card.v-card--flat.theme--light {
-    position: static;
+/*.v-tabs__bar.theme--dark.cyan {
+    position: fixed !important;
+    bottom: 0;
+    width: 100vw;
+    z-index: 1;
+}*/
+
+/*.v-card__text {
+    background-color: #ffdd40;
+    color: rgba(0,0,0,.87);
+    height: 100vh;
+    height: calc(100vh - 72px);
+}*/
+
+/*.v-tabs__bar {
+    width: 100vw;
+    margin-top: calc(100vh - 72px) !important;
+}*/
+
+    .v-tabs__bar {
+        position: fixed !important;
+        width: 100vw;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .v-card__text {
+        padding: 16px;
+        width: 100%;
+        position: fixed;
+        top: 64px;
+        height: calc(100vh - 64px);
+        background: yellow;
+    }
+
+/*.theme--dark.v-tabs__bar {
+    position: fixed !important;
+    width: 100vw;
+    bottom: 0;
+    z-index: 1;
+}*/
+
+.v-card {
+    height: calc(100vh - 64px);
 }
 
-.v-bottom-nav .v-btn {
-    min-width: 72px !important;
+/*.v-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}*/
+
+.v-list>div:last-child {
+    position: fixed;
+    bottom: 12px;
+    width: 100vw;
+}
+
+aside{
+    max-height: calc(100% - 136px) !important;
+    padding-left: 12px; 
+}
+
+.v-navigation-drawer--mini-variant{
+    padding-left: 0px;
 }

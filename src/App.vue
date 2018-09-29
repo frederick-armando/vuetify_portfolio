@@ -1,5 +1,68 @@
 <template>
-  <v-app>
+<div id="app">
+  <v-app id="inspire">
+    
+    <v-tabs
+        centered
+        color="cyan"
+        dark
+        icons-and-text
+      >
+        <!--v-tab-item
+          v-for="i in 3"
+          :id="'tab-' + i"
+          :key="i"
+          align-end
+        >
+        
+          <v-card>
+            <v-card-text>{{ text }}</v-card-text>
+          </v-card>
+
+        </v-tab-item-->
+
+        <v-tab-item
+          v-for="i in 5"
+          :id="'tab-' + i"
+          :key="i"
+          align-end
+        >
+        
+          <v-card>
+            <v-card-text><router-view/></v-card-text>
+          </v-card>
+
+        </v-tab-item>
+        
+        <v-tabs-slider color="yellow"></v-tabs-slider>
+    
+        <v-tab href="#tab-1">
+          Home
+          <v-icon>home</v-icon>
+        </v-tab>
+    
+        <v-tab href="#tab-2">
+          About
+          <v-icon>favorite</v-icon>
+        </v-tab>
+    
+        <v-tab href="#tab-3">
+          Skills
+          <v-icon>account_box</v-icon>
+        </v-tab>
+    
+        <v-tab href="#tab-4">
+          Works
+          <v-icon>history</v-icon>
+        </v-tab>
+    
+        <v-tab href="#tab-5">
+          Mail
+          <v-icon>place</v-icon>
+        </v-tab>
+    
+      </v-tabs>
+
     <v-navigation-drawer
       persistent
       :mini-variant="miniVariant"
@@ -21,119 +84,66 @@
           <v-list-tile-content>
             <v-list-tile-title v-text="item.title"></v-list-tile-title>
           </v-list-tile-content>
+
+        </v-list-tile>
+
+        <v-list-tile
+          value="true"
+          v-for="(item, i) in items"
+          :key="i"
+        >
+          <v-list-tile-action>
+            <v-icon v-html="item.icon"></v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title v-text="item.title"></v-list-tile-title>
+          </v-list-tile-content>
+
+        </v-list-tile>
+
+        <v-list-tile
+          value="true"
+          v-for="(item, i) in items"
+          :key="i"
+        >
+
+          <v-list-tile-action>
+            <v-btn icon @click.stop="miniVariant = !miniVariant">
+              <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
+            </v-btn>
+          </v-list-tile-action>
+          
+          <v-list-tile-content>
+            {{ back }}
+          </v-list-tile-content>
+          
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar 
-      app
-      :clipped-left="clipped"
-    >
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>web</v-icon>
-      </v-btn>
-      <!--v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>remove</v-icon>
-      </v-btn-->
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-      <v-spacer></v-spacer>
+      <v-toolbar 
+        app
+        :clipped-left="clipped"
+      >
+        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+        <!--v-btn icon @click.stop="miniVariant = !miniVariant">
+          <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
+        </v-btn>
+        <v-btn icon @click.stop="clipped = !clipped">
+          <v-icon>web</v-icon>
+        </v-btn-->
+        <!--v-btn icon @click.stop="fixed = !fixed">
+          <v-icon>remove</v-icon>
+        </v-btn-->
+        <v-toolbar-title v-text="title"></v-toolbar-title>
+        <v-spacer></v-spacer>
 
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>menu</v-icon>
-      </v-btn>
-      
-    </v-toolbar>
+        <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+          <v-icon>menu</v-icon>
+        </v-btn>
+        
+      </v-toolbar>
     <v-content>
-    
-        <!--v-tabs
-          v-model="active"
-          color="cyan"
-          dark
-          slider-color="yellow"
-        >
-          <v-tab
-            v-for="n in 3"
-            :key="n"
-            ripple
-          >
-            Item {{ n }}
-    
-          </v-tab>
-          <v-tab-item
-            v-for="n in 3"
-            :key="n"
-          >
-            <v-card flat>
-              <v-card-text>{{ text }}</v-card-text>
-            </v-card>
-          </v-tab-item>
-        </v-tabs>
-    
-        <div class="text-xs-center mt-3">
-          <v-btn @click="next">next tab</v-btn>
-        </div-->
 
-        <v-card height="200px" flat>
-          <div class="headline text-xs-center pa-5">
-            Active: {{ bottomNav }}
-          </div>
-          <v-bottom-nav
-            :active.sync="bottomNav"
-            :value="true"
-            absolute
-            color="transparent"
-          >
-            <v-btn
-              color="teal"
-              flat
-              value="home"
-            >
-              <span>Home</span>
-              <v-icon>home</v-icon>
-            </v-btn>
-
-            <v-btn
-              color="teal"
-              flat
-              value="favorites"
-            >
-              <span>Favorites</span>
-              <v-icon>favorite</v-icon>
-            </v-btn>
-
-            <v-btn
-              color="teal"
-              flat
-              value="nearby it"
-            >
-              <span>Nearby</span>
-              <v-icon>place</v-icon>
-            </v-btn>
-
-            <v-btn
-              color="teal"
-              flat
-              value="recent"
-            >
-              <span>Recent</span>
-              <v-icon>history</v-icon>
-            </v-btn>
-
-            <v-btn
-              color="teal"
-              flat
-              value="people"
-            >
-              <span>People</span>
-              <v-icon>people</v-icon>
-            </v-btn>
-          </v-bottom-nav>
-        </v-card>
-
-      <!--router-view/-->
     </v-content>
     <v-navigation-drawer
       temporary
@@ -167,6 +177,7 @@
       <span>&copy; 2018</span>
     </v-footer-->
   </v-app>
+</div>
 </template>
 
 <script>
@@ -174,7 +185,7 @@ export default {
   data () {
     return {
       clipped: true,
-      drawer: false,
+      drawer: true,
       fixed: false,
       items: [{
         icon: 'bubble_chart',
@@ -186,7 +197,8 @@ export default {
       title: 'Vuetify.js',
       bottomNav: 'recent',
       active: null,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      back: 'Retour'
     }
   },
   methods: {
