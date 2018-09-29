@@ -1,11 +1,9 @@
 <template>
 <div id="app">
-  <v-app id="inspire">
+  <v-app id="inspire" :dark="goDark">
     
     <v-tabs
         centered
-        color="cyan"
-        dark
         icons-and-text
       >
         <!--v-tab-item
@@ -34,7 +32,7 @@
 
         </v-tab-item>
         
-        <v-tabs-slider color="yellow"></v-tabs-slider>
+        <v-tabs-slider color="primary"></v-tabs-slider>
     
         <v-tab href="#tab-1">
           Home
@@ -137,45 +135,29 @@
         <v-toolbar-title v-text="title"></v-toolbar-title>
         <v-spacer></v-spacer>
 
-        <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-          <v-icon>menu</v-icon>
+        <!--v-switch
+            label="red"
+            color="red"
+            :label="`English`"
+            v-model="goDark">
+        </v-switch>
+
+        <p>{{ people }}</p>
+        <v-switch v-model="people" label="Langue" value="French = !English"></v-switch-->
+
+        <!--select v-model="language" selected="A">
+          <option value="A" selected disabled>Français</option>
+          <option value="B">English</option>
+        </select-->
+
+        <v-btn icon @click="goDark = !goDark">
+          <v-icon>invert_colors</v-icon>
         </v-btn>
-        
+
       </v-toolbar>
     <v-content>
 
     </v-content>
-    <v-navigation-drawer
-      temporary
-      :right="right"
-      v-model="rightDrawer"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-tile @click="right = !right">
-        
-          <!--v-list class="pa-0"> 
-            <v-list-tile avatar>
-              <v-list-tile-avatar>
-                <img src="https://randomuser.me/api/portraits/men/85.jpg" />
-              </v-list-tile-avatar>
-              <v-list-tile-content>
-                <v-list-tile-title>John Leider</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </v-list-->
-
-          <v-list-tile-action>
-            <v-icon>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <!--v-footer :fixed="fixed" app class="deep-purple">
-      <span>&copy; 2018</span>
-    </v-footer-->
   </v-app>
 </div>
 </template>
@@ -184,6 +166,7 @@
 export default {
   data () {
     return {
+      goDark: false,
       clipped: true,
       drawer: true,
       fixed: false,
