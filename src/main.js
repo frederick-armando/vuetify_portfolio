@@ -21,6 +21,9 @@ Vue.config.productionTip = true
 
 new Vue({
   el: '#app',
+  data: {
+    language: ''
+  },
   router,
   components: { App },
   template: '<App/>'
