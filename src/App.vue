@@ -2,12 +2,26 @@
 <div id="app">
   <v-app id="inspire" :dark="goDark">
     
-    <!--v-tabs
+    <v-tabs
         centered
         icons-and-text
       >
+
+        <!--v-tab-item
+          v-for="i in 1"
+          :id="'tab-' + i"
+          :key="i"
+          align-end
+        >
+        
+          <v-card>
+            <v-card-text><router-view/></v-card-text>
+          </v-card>
+
+        </v-tab-item>
+
         <v-tab-item
-          v-for="i in 3"
+          v-for="i in 2"
           :id="'tab-' + i"
           :key="i"
           align-end
@@ -20,6 +34,32 @@
         </v-tab-item>
 
         <v-tab-item
+          v-for="i in 3"
+          :id="'tab-' + i"
+          :key="i"
+          align-end
+        >
+        
+          <v-card>
+            <v-card-text>{{ text2 }}</v-card-text>
+          </v-card>
+
+        </v-tab-item>
+
+        <v-tab-item
+          v-for="i in 4"
+          :id="'tab-' + i"
+          :key="i"
+          align-end
+        >
+        
+          <v-card>
+            <v-card-text>{{ text3 }}</v-card-text>
+          </v-card>
+
+        </v-tab-item>
+
+        <v-tab-item
           v-for="i in 5"
           :id="'tab-' + i"
           :key="i"
@@ -27,72 +67,74 @@
         >
         
           <v-card>
-            <v-card-text><router-view></router-view></v-card-text>
+            <v-card-text><router-view/></v-card-text>
           </v-card>
 
-        </v-tab-item>      
-
-        <v-tabs-slider color="primary"></v-tabs-slider>
-    
-        <v-tab href="#tab-1">
-          Home
-          <v-icon>home</v-icon>
-        </v-tab>
-    
-        <v-tab href="#tab-2">
-          About
-          <v-icon>favorite</v-icon>
-        </v-tab>
-    
-        <v-tab href="#tab-3">
-          Skills
-          <v-icon>account_box</v-icon>
-        </v-tab>
-    
-        <v-tab href="#tab-4">
-          Works
-          <v-icon>history</v-icon>
-        </v-tab>
-    
-        <v-tab href="#tab-5">
-          Mail
-          <v-icon>place</v-icon>
-        </v-tab>
-    
-      </v-tabs-->
-
-      <v-tabs fixed centered icons-and-text>
+        </v-tab-item-->
         
         <v-tabs-slider color="primary"></v-tabs-slider>
     
-        <v-tab to="/">
+        <v-tab>
           Home
           <v-icon>home</v-icon>
         </v-tab>
     
-        <v-tab to="/about">
+        <v-tab>
           About
           <v-icon>favorite</v-icon>
         </v-tab>
     
-        <v-tab to="/skills">
+        <v-tab>
           Skills
           <v-icon>account_box</v-icon>
         </v-tab>
     
-        <v-tab to="/works">
+        <v-tab>
           Works
           <v-icon>history</v-icon>
         </v-tab>
     
-        <v-tab to="/contact">
+        <v-tab>
           Mail
           <v-icon>place</v-icon>
         </v-tab>
+    
+        <!--v-tab href="#tab-5">
+          Mail
+          <v-icon>place</v-icon>
+        </v-tab-->
 
+        <v-tab-item>
+          <v-card flat>
+          <v-card-text><router-view/></v-card-text>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab-item>
+          <v-card flat>
+            <v-card-text>{{ textb }}</v-card-text>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab-item>
+          <v-card flat>
+            <v-card-text>{{ textc }}</v-card-text>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab-item>
+          <v-card flat>
+            <v-card-text>{{ textd }}</v-card-text>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab-item>
+          <v-card flat>
+            <v-card-text>{{ texte }}</v-card-text>
+          </v-card>
+        </v-tab-item>
+    
       </v-tabs>
-
-      <router-view></router-view>
 
     <v-navigation-drawer
       persistent
@@ -213,7 +255,11 @@ export default {
       title: 'Vuetify.js',
       bottomNav: 'recent',
       active: null,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      texta: '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      textb: '2 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      textc: '3 Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      textd: '3 Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      texte: '3 Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       back: 'Retour'
     }
   },

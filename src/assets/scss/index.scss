@@ -1,3 +1,7 @@
+html{
+    overflow: hidden;
+}
+
 /*.v-tabs__bar.theme--dark.cyan {
     position: fixed !important;
     bottom: 0;
@@ -102,17 +106,6 @@ aside{
     margin-bottom: 6px;
     margin: 8px;
     margin-left: 0;
-}
-
-.v-fix{
-    padding-top:64px;
-    padding-left: 80px;
-    min-height: 100vh;
-    background: red; 
-}
-
-.v-bis{
-    background: yellow;
 }
 
 @media only screen and (min-width: 600px){
