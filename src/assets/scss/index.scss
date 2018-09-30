@@ -104,6 +104,16 @@ aside{
     margin-left: 0;
 }
 
+.v-fix{
+    padding-top:64px;
+    padding-left: 80px;
+    background: red; 
+}
+
+.v-bis{
+    background: yellow;
+}
+
 @media only screen and (min-width: 600px){
     .v-tabs__container--fixed-tabs .v-tabs__div, .v-tabs__container--icons-and-text .v-tabs__div {
         min-width: 128px;
