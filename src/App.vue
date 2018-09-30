@@ -61,7 +61,8 @@
     
       </v-tabs-->
 
-      <v-tabs centered icons-and-text>
+      <v-tabs fixed centered icons-and-text>
+        
         <v-tabs-slider color="primary"></v-tabs-slider>
     
         <v-tab to="/">
@@ -90,6 +91,7 @@
         </v-tab>
 
       </v-tabs>
+
       <router-view></router-view>
 
     <v-navigation-drawer
