@@ -2,11 +2,11 @@
 <div id="app">
   <v-app id="inspire" :dark="goDark">
     
-    <v-tabs
+    <!--v-tabs
         centered
         icons-and-text
       >
-        <!--v-tab-item
+        <v-tab-item
           v-for="i in 3"
           :id="'tab-' + i"
           :key="i"
@@ -17,7 +17,7 @@
             <v-card-text>{{ text }}</v-card-text>
           </v-card>
 
-        </v-tab-item-->
+        </v-tab-item>
 
         <v-tab-item
           v-for="i in 5"
@@ -27,11 +27,11 @@
         >
         
           <v-card>
-            <v-card-text><router-view/></v-card-text>
+            <v-card-text><router-view></router-view></v-card-text>
           </v-card>
 
-        </v-tab-item>
-        
+        </v-tab-item>      
+
         <v-tabs-slider color="primary"></v-tabs-slider>
     
         <v-tab href="#tab-1">
@@ -59,7 +59,38 @@
           <v-icon>place</v-icon>
         </v-tab>
     
+      </v-tabs-->
+
+      <v-tabs centered icons-and-text>
+        <v-tabs-slider color="primary"></v-tabs-slider>
+    
+        <v-tab to="/">
+          Home
+          <v-icon>home</v-icon>
+        </v-tab>
+    
+        <v-tab to="/about">
+          About
+          <v-icon>favorite</v-icon>
+        </v-tab>
+    
+        <v-tab to="/skills">
+          Skills
+          <v-icon>account_box</v-icon>
+        </v-tab>
+    
+        <v-tab to="/works">
+          Works
+          <v-icon>history</v-icon>
+        </v-tab>
+    
+        <v-tab to="/contact">
+          Mail
+          <v-icon>place</v-icon>
+        </v-tab>
+
       </v-tabs>
+      <router-view></router-view>
 
     <v-navigation-drawer
       persistent
