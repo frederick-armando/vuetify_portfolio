@@ -1,5 +1,11 @@
+$primary: #1976D2;
+
 html{
-    overflow: hidden;
+    overflow: auto;
+}
+
+.theme--dark.v-card {
+    background-color: #303030;
 }
 
     .v-tabs__bar {
@@ -12,14 +18,15 @@ html{
     .v-card__text {
         padding: 16px;
         width: 100%;
-        position: fixed;
+        position: relative; /*setfixed*/
         top: 64px;
-        min-height: calc(100vh - 64px);
+        margin-bottom: 72px;
+        min-height: calc(100vh - 136px); /*-64px*/
     }
 
-.v-card {
-    min-height: calc(100vh - 64px);
-}
+    .v-card{
+        min-height: calc(100vh - 136px); /*-64px*/
+    }
 
 .v-list>div:last-child {
     position: fixed;
@@ -61,17 +68,54 @@ aside{
     margin-left: 0;
 }
 
-/*.text--darken-2 {
-    border: white solid 5px;
-    border-radius: 5px;
-    margin-left: -5px;
-    background: white;
+    /*.text--darken-2 {
+        border: white solid 5px;
+        border-radius: 5px;
+        margin-left: -5px;
+        background: white;
+    }
+
+    .text--darken-2:hover {
+        -webkit-box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    }*/
+
+.v-card__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.text--darken-2:hover {
-    -webkit-box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
-    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
-}*/
+.m-content {
+    max-width: 85vw;
+    text-align: justify;
+    margin-top: 8px;
+    padding: 24px;
+    background: $primary;
+    border-radius: 8px;
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12) !important;
+}
+
+.m-content:hover {
+    box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2), 0px 10px 14px 1px rgba(0,0,0,0.14), 0px 4px 18px 3px rgba(0,0,0,0.12) !important;}
+
+.m-bis {
+    background: $primary+50 !important;
+    /*margin: 25px;*/
+}
+
+.m-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*flex-wrap: wrap;*/
+    max-width: 85vw;
+}
+
+.m-flex p:last-child {
+    margin-left: 25px;
+}
 
 @media only screen and (min-width: 600px){
     .v-tabs__container--fixed-tabs .v-tabs__div, .v-tabs__container--icons-and-text .v-tabs__div {
@@ -105,5 +149,13 @@ aside{
 
     .v-tabs__slider {
         height: 4px;
+    }
+
+    .m-flex {
+        flex-wrap: wrap;
+    }
+    
+    .m-flex p:last-child {
+        margin-left: 0;
     }
 }

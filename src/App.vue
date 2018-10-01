@@ -17,16 +17,43 @@
 
       <v-tabs-slider color="primary"></v-tabs-slider>
 
-      <v-tab-item><v-card flat><v-card-text><router-view/></v-card-text></v-card></v-tab-item>
+      <!--v-tab-item><v-card flat><v-card-text><router-view/></v-card-text></v-card></v-tab-item-->
 
-      <v-tab-item><v-card flat><v-card-text>{{textb}}</v-card-text></v-card> </v-tab-item>
+      <v-tab-item v-scroll="onScroll"><v-card flat><v-card-text>
+        <h2>{{titrea}}</h2>
+        <p class="m-content">{{texta}}</p>  
+        <p class="m-content m-bis">{{texta}}</p>
+        <p class="m-content">{{texta}}</p>  
+        <p class="m-content m-bis">{{texta}}</p>
+        <p class="m-content">{{texta}}</p>  
+        <p class="m-content m-bis">{{texta}}</p>
+        <p class="m-content">{{texta}}</p>  
+        <p class="m-content m-bis">{{texta}}</p>
+      </v-card-text></v-card> </v-tab-item>
 
-      <v-tab-item><v-card flat><v-card-text>{{textc}}</v-card-text></v-card> </v-tab-item>
+      <v-tab-item><v-card flat><v-card-text>
+        <h2>{{titreb}}</h2>
+        <p class="m-content">{{textb}}</p>  
+      </v-card-text></v-card> </v-tab-item>
 
-      <v-tab-item><v-card flat><v-card-text>{{textd}}</v-card-text></v-card></v-tab-item>
+      <v-tab-item><v-card flat><v-card-text>
+        <h2>{{titrec}}</h2>
+        <p class="m-content m-bis">{{textc}}</p>  
+      </v-card-text></v-card> </v-tab-item>
 
-      <v-tab-item><v-card flat><v-card-text>{{texte}}</v-card-text></v-card></v-tab-item>
-    
+      <v-tab-item><v-card flat><v-card-text>
+        <h2>{{titred}}</h2>
+        <p class="m-content">{{textd}}</p>  
+      </v-card-text></v-card> </v-tab-item>
+
+      <v-tab-item><v-card flat><v-card-text>
+        <h2>{{titree}}</h2>
+        <div class="m-flex">
+          <p class="m-content m-bis">{{texte}}</p>
+          <p class="m-content m-bis">{{texte}}</p>  
+        </div> 
+      </v-card-text></v-card> </v-tab-item>
+
     </v-tabs>
 
     <v-navigation-drawer
@@ -160,7 +187,7 @@
 
       <v-tooltip bottom>
         <v-btn slot="activator" icon @click="goDark = !goDark"><v-icon>invert_colors</v-icon></v-btn>
-        <span>Dark</span>
+        <span>Color</span>
       </v-tooltip>
 
     </v-toolbar>
@@ -198,10 +225,15 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js',
       active: null,
+        titrea: 'Exemple 1',
       texta: '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      textb: '2 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        titreb: 'Exemple 2',
+      textb: '2 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 2 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        titrec: 'Exemple 3',
       textc: '3 Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      textd: '4 Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        titred: 'Exemple 4',
+      textd: '4 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 2 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        titree: 'Exemple 5',
       texte: '5 Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
       back: 'Close panel'
     }
