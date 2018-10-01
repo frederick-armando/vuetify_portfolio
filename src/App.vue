@@ -20,38 +20,91 @@
       <!--v-tab-item><v-card flat><v-card-text><router-view/></v-card-text></v-card></v-tab-item-->
 
       <v-tab-item v-scroll="onScroll"><v-card flat><v-card-text>
-        <h2>{{titrea}}</h2>
-        <p class="m-content">{{texta}}</p>  
-        <p class="m-content m-bis">{{texta}}</p>
-        <p class="m-content">{{texta}}</p>  
-        <p class="m-content m-bis">{{texta}}</p>
-        <p class="m-content">{{texta}}</p>  
-        <p class="m-content m-bis">{{texta}}</p>
-        <p class="m-content">{{texta}}</p>  
-        <p class="m-content m-bis">{{texta}}</p>
+        <v-container fluid grid-list-md>
+          <v-layout row wrap>
+            <v-flex d-flex xs12 sm6 md4>
+              <v-card color="purple" dark>
+                <v-card-title primary class="title">Lorem</v-card-title>
+                <v-card-text>{{ lorem }}</v-card-text>
+              </v-card>
+            </v-flex>
+            <v-flex d-flex xs12 sm6 md3>
+              <v-layout row wrap>
+                <v-flex d-flex>
+                  <v-card color="indigo" dark>
+                    <v-card-text>{{ lorem.slice(0, 70) }}</v-card-text>
+                  </v-card>
+                </v-flex>
+                <v-flex d-flex>
+                  <v-layout row wrap>
+                    <v-flex
+                      v-for="n in 2"
+                      :key="n"
+                      d-flex
+                      xs12
+                    >
+                      <v-card
+                        color="red lighten-2"
+                        dark
+                      >
+                        <v-card-text>{{ lorem.slice(0, 40) }}</v-card-text>
+                      </v-card>
+                    </v-flex>
+                  </v-layout>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+            <v-flex d-flex xs12 sm6 md2 child-flex>
+              <v-card color="green lighten-2" dark>
+                <v-card-text>{{ lorem.slice(0, 90) }}</v-card-text>
+              </v-card>
+            </v-flex>
+            <v-flex d-flex xs12 sm6 md3>
+              <v-card color="blue lighten-2" dark>
+                <v-card-text>{{ lorem.slice(0, 50) }}</v-card-text>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </v-container>
       </v-card-text></v-card> </v-tab-item>
 
       <v-tab-item><v-card flat><v-card-text>
-        <h2>{{titreb}}</h2>
-        <p class="m-content">{{textb}}</p>  
+        <v-container fluid grid-list-md>
+          <div class="m-div">
+            <h2>{{titreb}}</h2>
+            <p class="m-content">{{textb}}</p>
+          </div>  
+        </v-container>
       </v-card-text></v-card> </v-tab-item>
 
       <v-tab-item><v-card flat><v-card-text>
-        <h2>{{titrec}}</h2>
-        <p class="m-content m-bis">{{textc}}</p>  
+        <v-container fluid grid-list-md>
+          <div class="m-div">
+            <h2>{{titrec}}</h2>
+            <p class="m-content m-bis">{{textc}}</p>
+          </div>  
+        </v-container>  
       </v-card-text></v-card> </v-tab-item>
 
       <v-tab-item><v-card flat><v-card-text>
-        <h2>{{titred}}</h2>
-        <p class="m-content">{{textd}}</p>  
+        <v-container fluid grid-list-md>
+          <div class="m-div">
+            <h2>{{titred}}</h2>
+            <p class="m-content">{{textd}}</p>
+          </div>  
+        </v-container>
       </v-card-text></v-card> </v-tab-item>
 
       <v-tab-item><v-card flat><v-card-text>
-        <h2>{{titree}}</h2>
-        <div class="m-flex">
-          <p class="m-content m-bis">{{texte}}</p>
-          <p class="m-content m-bis">{{texte}}</p>  
-        </div> 
+        <v-container fluid grid-list-md>
+          <div class="m-div">
+            <h2>{{titree}}</h2>
+            <div class="m-flex">
+              <p class="m-content">{{texte}}</p>
+              <p class="m-content m-bis">{{texte}}</p>
+            </div>
+          </div>  
+        </v-container>
       </v-card-text></v-card> </v-tab-item>
 
     </v-tabs>
@@ -206,7 +259,7 @@ export default {
     return {
       goDark: false,
       clipped: true,
-      drawer: true, //settrue
+      drawer: false, //settrue
       fixed: false,
       items: [{
         icon: 'bubble_chart',
@@ -225,6 +278,7 @@ export default {
       rightDrawer: false,
       title: 'Vuetify.js',
       active: null,
+      lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
         titrea: 'Exemple 1',
       texta: '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         titreb: 'Exemple 2',
