@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import 'babel-polyfill'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 require('./assets/scss/index.scss')
