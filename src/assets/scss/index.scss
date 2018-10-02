@@ -35,7 +35,7 @@ html{
         align-items: center;
         justify-content: center;
         margin-top: 40px;
-        min-height: calc(100vh - 136px);
+        min-height: calc(100vh - 136px); /*72 + 64 + 40*/
         max-width: 85vw;
     }    
 
@@ -132,6 +132,14 @@ aside{
     flex-direction: column;
 }
 
+.v-card__actions {
+    padding-top: 2px;
+}
+
+.ndfHFb-c4YZDc-cYSp0e.ndfHFb-c4YZDc-oKVyEf {
+    background: white !important;
+}
+
 @media only screen and (min-width: 600px){
     .v-tabs__container--fixed-tabs .v-tabs__div, .v-tabs__container--icons-and-text .v-tabs__div {
         min-width: 128px;
@@ -173,4 +181,9 @@ aside{
     .m-flex p:last-child {
         margin-left: 0;
     }
+
+    .container.fluid {
+        min-height: calc(100vh - 176px);
+        margin-bottom: -40px;
+    }    
 }

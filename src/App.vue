@@ -231,6 +231,7 @@
     >
       <v-tooltip bottom>
         <v-toolbar-side-icon slot="activator" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+        <!--v-btn slot="activator" @click.stop="drawer = !drawer"><v-icon>dashboard</v-icon></v-btn-->
         <span>Panel</span>
       </v-tooltip>
 
@@ -239,13 +240,36 @@
       <v-spacer></v-spacer>
 
       <v-tooltip bottom>
+        <v-btn slot="activator" icon @click="dialog = true"><v-icon>assignment_ind</v-icon></v-btn>
+        <span>Resume</span>
+      </v-tooltip>
+
+      <v-tooltip bottom>
         <v-btn slot="activator" icon @click="goDark = !goDark"><v-icon>invert_colors</v-icon></v-btn>
         <span>Color</span>
       </v-tooltip>
 
     </v-toolbar>
 
-    <v-content></v-content>
+    <!--v-content></v-content-->
+
+        <v-dialog v-model="dialog" width="85vw">
+        <v-card>
+          <!--v-card-title>
+            <span class="headline">My Resume</span>
+          </v-card-title-->
+          <iframe src="https://drive.google.com/file/d/1yKt8p_wTAaz5tQDEMcYRjfq_9zX4LpXM/preview" width="100%" height="520"></iframe>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn :loading="loading3" :disabled="loading3" color="primary" class="white--text" @click.native="loader = 'loading3'" href="https://drive.google.com/uc?export=download&id=1yKt8p_wTAaz5tQDEMcYRjfq_9zX4LpXM">
+              Download
+              <!--v-icon right dark>save_alt</v-icon-->
+            </v-btn>
+            <!--v-btn color="green darken-1" flat="flat" @click="dialog = false" href="https://drive.google.com/uc?export=download&id=1yKt8p_wTAaz5tQDEMcYRjfq_9zX4LpXM">Download</v-btn-->
+            <v-btn color="blue darken-2" flat="flat" @click="dialog = false">Close</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
 
   </v-app>
 
@@ -257,41 +281,54 @@
 export default {
   data () {
     return {
+      dialog: false,
+        loader: null,
+        loading3: false,
       goDark: false,
       clipped: true,
-      drawer: false, //settrue
-      fixed: false,
-      items: [{
-        icon: 'bubble_chart',
-        title7: 'Ankama',
-        title6: 'Ebenup',
-        title5: 'CND AR',
-        title4: 'Keluro',
-        title3: 'UXVR.fr',
-        title2: 'Guide Var',
-        title1: 'ASC Communication',
-        title0: 'Domicile 90',
-        title: 'Virtua Media'
+        drawer: false, //settrue
+        fixed: false,
+        items: [{
+          icon: 'bubble_chart',
+          title7: 'Ankama',
+          title6: 'Ebenup',
+          title5: 'CND AR',
+          title4: 'Keluro',
+          title3: 'UXVR.fr',
+          title2: 'Guide Var',
+          title1: 'ASC Communication',
+          title0: 'Domicile 90',
+          title: 'Virtua Media'
       }],
       miniVariant: true,
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js',
       active: null,
-      lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
+        lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
         titrea: 'Exemple 1',
-      texta: '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        texta: '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         titreb: 'Exemple 2',
-      textb: '2 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 2 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        textb: '2 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 2 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         titrec: 'Exemple 3',
-      textc: '3 Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        textc: '3 Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         titred: 'Exemple 4',
-      textd: '4 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 2 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        textd: '4 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 2 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         titree: 'Exemple 5',
-      texte: '5 Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      back: 'Close panel'
+        texte: '5 Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        back: 'Close panel'
     }
   },
+  watch: {
+      loader () {
+        const l = this.loader
+        this[l] = !this[l]
+
+        setTimeout(() => (this[l] = false), 3000)
+
+        this.loader = null
+      }
+    },
   name: 'App'
 }
 </script>
